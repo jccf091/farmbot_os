@@ -9,7 +9,6 @@ defmodule Farmbot.System.NervesHubClient do
 
   @behaviour NervesHub.Client
   @behaviour Farmbot.System.NervesHub
-  import Farmbot.Config, only: [get_config_value: 3]
 
   def serial_number("rpi0"), do: serial_number("rpi")
   def serial_number("rpi3"), do: serial_number("rpi")
@@ -159,7 +158,7 @@ defmodule Farmbot.System.NervesHubClient do
       Farmbot.BotState.set_update_available(true)
     end
 
-    case get_config_value(:bool, "settings", "os_auto_update") do
+    case Farmbot.Asset.fbos_config(:os_auto_update) do
       true ->
         Logger.success 1, "Applying OTA update"
         {:reply, :apply, {:apply, url}}
