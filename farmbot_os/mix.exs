@@ -75,7 +75,7 @@ defmodule Farmbot.OS.MixProject do
       {:nerves_wpa_supplicant, "~> 0.3"},
       {:nerves_time, "~> 0.2"},
       {:nerves_hub,
-        github: "nerves-hub/nerves_hub", branch: "client-error-handling", override: true},
+       github: "nerves-hub/nerves_hub", branch: "client-error-handling", override: true},
       {:dhcp_server, "~> 0.6"},
       {:mdns, "~> 1.0"},
       {:nerves_firmware_ssh, "~> 0.3"},
